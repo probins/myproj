@@ -1,5 +1,6 @@
 {
   "type": "module",
+  "version": "2.6.3-alpha",
   "dependencies": {
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^8.0.1",

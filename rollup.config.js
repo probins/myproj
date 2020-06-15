@@ -6,8 +6,8 @@ import {terser} from 'rollup-plugin-terser';
 import pkg from './package.json';
 
 export default {
-  input: ['../proj4js/lib/index.js',
-    './laea.js', './lcc.js', './merc.js', './omerc.js', './sterea.js',
+  input: ['../proj4js/lib/index.js', // './merc.js', 
+    './laea.js', './lcc.js', './omerc.js', './sterea.js',
     './tmerc.js', './utm.js'
   ],
   output: {

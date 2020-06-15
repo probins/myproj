@@ -1,0 +1,1 @@
+{"version":3,"file":"sterea.js","sources":["../../sterea.js"],"sourcesContent":["import sterea from '../proj4js/lib/projections/laea.js';\nimport proj4 from '../proj4js/lib/index.js';\n\nproj4.Proj.projections.add(sterea);\n"],"names":["proj4","Proj","projections","add","sterea"],"mappings":"gHAGAA,EAAMC,KAAKC,YAAYC,IAAIC"}

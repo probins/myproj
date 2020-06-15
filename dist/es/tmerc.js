@@ -1,2 +1,2 @@
-import{p as o}from"./index-47a7fca3.js";import{u as a}from"./laea-1d793dc4.js";import"./adjust_lon-70dcf87c.js";o.Proj.projections.add(a);
+import{p as o}from"./index-c8cfff01.js";import{u as r}from"./laea-737ce10e.js";o.Proj.projections.add(r);
 //# sourceMappingURL=tmerc.js.map
