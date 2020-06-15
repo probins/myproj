@@ -1,0 +1,1 @@
+{"version":3,"file":"utm.js","sources":["../../utm.js"],"sourcesContent":["import utm from '../proj4js/lib/projections/laea.js';\nimport proj4 from '../proj4js/lib/index.js';\n\nproj4.Proj.projections.add(utm);\n"],"names":["proj4","Proj","projections","add","utm"],"mappings":"gHAGAA,EAAMC,KAAKC,YAAYC,IAAIC"}
