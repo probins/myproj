@@ -1,1 +1,0 @@
-{"version":3,"file":"laea.js","sources":["../../laea.js"],"sourcesContent":["import laea from '../proj4js/lib/projections/laea.js';\nimport proj4 from '../proj4js/lib/index.js';\n\nproj4.Proj.projections.add(laea);\n"],"names":["proj4","Proj","projections","add","laea"],"mappings":"gHAGAA,EAAMC,KAAKC,YAAYC,IAAIC"}

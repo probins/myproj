@@ -1,1 +1,0 @@
-{"version":3,"file":"lcc.js","sources":["../../lcc.js"],"sourcesContent":["import lcc from '../proj4js/lib/projections/laea.js';\nimport proj4 from '../proj4js/lib/index.js';\n\nproj4.Proj.projections.add(lcc);\n"],"names":["proj4","Proj","projections","add","lcc"],"mappings":"gHAGAA,EAAMC,KAAKC,YAAYC,IAAIC"}
