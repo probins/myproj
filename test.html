@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script type="module">
+  import proj4 from 'https://cdn.jsdelivr.net/gh/probins/myproj@0.3.0/dist/esbare/bareindex.js';
+  import 'https://cdn.jsdelivr.net/gh/probins/myproj@0.3.0/dist/esbare/laea.js';
+  import 'https://cdn.jsdelivr.net/gh/probins/myproj@0.3.0/dist/esbare/merc.js';
+  import def3035 from 'https://cdn.jsdelivr.net/gh/probins/myproj@0.3.0/defs/epsg3035.js';
+  import def3857 from 'https://cdn.jsdelivr.net/gh/probins/myproj@0.3.0/defs/epsg3857.js';
+
+  proj4.defs('EPSG:3035', def3035);
+
+  let content = '';
+  content += JSON.stringify(proj4.defs('EPSG:3035'), null, 2) + '/n';
+
+  content += proj4('EPSG:3035', [-2, 55]) + '/n';
+  content += proj4('EPSG:3035', 'EPSG:4326', [3556882.464751255, 3607614.5878257155]) + '/n';
+
+  let forward = proj4('EPSG:3035').forward;
+  content += forward([-2, 55]) + '/n';
+  let inverse = proj4('EPSG:3035').inverse;
+  content += inverse([3556882.464751255, 3607614.5878257155]) + '/n';
+
+  proj4.defs('EPSG:3857', def3857);
+
+  content += JSON.stringify(proj4.defs('EPSG:3857'), null, 2) + '/n';
+
+  content += proj4('EPSG:3857', [-2, 55]) + '/n';
+  content += proj4('EPSG:3857', 'EPSG:4326', [-222638.98158654713, 7361866.113051185]) + '/n';
+
+  forward = proj4('EPSG:3857').forward;
+  content += forward([-2, 55]) + '/n';
+  inverse = proj4('EPSG:3857').inverse;
+  content += inverse([-222638.98158654713, 7361866.113051185]) + '/n';
+
+  document.getElementById('content').innerHTML = content;
+  </script>
+</head>
+<body>
+  <div id="content"></div>
+</body>
+</html>
