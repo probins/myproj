@@ -13,27 +13,27 @@
   proj4.defs('EPSG:3035', def3035);
 
   let content = '';
-  content += JSON.stringify(proj4.defs('EPSG:3035'), null, 2) + '/n';
+  content += JSON.stringify(proj4.defs('EPSG:3035'), null, 2) + '<br>';
 
-  content += proj4('EPSG:3035', [-2, 55]) + '/n';
-  content += proj4('EPSG:3035', 'EPSG:4326', [3556882.464751255, 3607614.5878257155]) + '/n';
+  content += proj4('EPSG:3035', [-2, 55]) + '<br>';
+  content += proj4('EPSG:3035', 'EPSG:4326', [3556882.464751255, 3607614.5878257155]) + '<br>';
 
   let forward = proj4('EPSG:3035').forward;
-  content += forward([-2, 55]) + '/n';
+  content += forward([-2, 55]) + '<br>';
   let inverse = proj4('EPSG:3035').inverse;
-  content += inverse([3556882.464751255, 3607614.5878257155]) + '/n';
+  content += inverse([3556882.464751255, 3607614.5878257155]) + '<br>';
 
   proj4.defs('EPSG:3857', def3857);
 
-  content += JSON.stringify(proj4.defs('EPSG:3857'), null, 2) + '/n';
+  content += JSON.stringify(proj4.defs('EPSG:3857'), null, 2) + '<br>';
 
-  content += proj4('EPSG:3857', [-2, 55]) + '/n';
-  content += proj4('EPSG:3857', 'EPSG:4326', [-222638.98158654713, 7361866.113051185]) + '/n';
+  content += proj4('EPSG:3857', [-2, 55]) + '<br>';
+  content += proj4('EPSG:3857', 'EPSG:4326', [-222638.98158654713, 7361866.113051185]) + '<br>';
 
   forward = proj4('EPSG:3857').forward;
-  content += forward([-2, 55]) + '/n';
+  content += forward([-2, 55]) + '<br>';
   inverse = proj4('EPSG:3857').inverse;
-  content += inverse([-222638.98158654713, 7361866.113051185]) + '/n';
+  content += inverse([-222638.98158654713, 7361866.113051185]) + '<br>';
 
   document.getElementById('content').innerHTML = content;
   </script>
