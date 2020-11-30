@@ -1,7 +1,7 @@
 ### Proj4js with ES-module output
 
 #### Part 1: create modules for Proj4js defs
-Proj4js currently uses a JSON representation of the traditional string definition for each projection. `dist/defs/` contains (uncompressed) modules consisting of a default export of this JS object for a given projection id, for example, `dist/defs/epsg3035.js` contains the def for the 'EPSG:3035' projection. These can then be imported using `jsDelivr` instead of defining the string in each app. It might be better to put these in a separate repo, as they do not normally change and so do not need updating whenever a new version of Proj4js is released.
+Proj4js currently uses a JSON representation of the traditional string definition for each projection. `dist/defs/` contains (uncompressed) modules consisting of a default export of this JS object for a given projection id, for example, `dist/defs/epsg3035.js` contains the def for the 'EPSG:3035' projection. These can then be imported via `jsDelivr` instead of defining the string in each app. It might be better to put these in a separate repo, as they do not normally change and so do not need updating whenever a new version of Proj4js is released. Once JSON modules are implemented, these modules can be changed to JSON.
 
 #### Part 2: projections in separate modules
 1. upgrade to latest version of `Rollup`
@@ -16,7 +16,7 @@ projections.add(laea);
 5. copy `projs.js` to `proj4js/` (an empty function, as in custom default in Gruntfile)
 6. clear `dist/es/`
 7. `rollup -c` will then use `rollup-config.js` and create modules in `dist/es/`
-8. once pushed to Github, these can then be imported in the browser from `dist/es` on `jsDelivr`. Until NodeJS supports importing from URL, the same code can be used by downloading the modules and then importing using a relative address (assuming the `package.json` contains `type:module`).
+8. once pushed to Github, these can then be imported in the browser or in Deno from `dist/es` on `jsDelivr`, for example: `deno run https://cdn.jsdelivr.net/gh/probins/myproj@0.4.1/test.js`. Until NodeJS supports importing from URL, the same code can be used by downloading the modules and then importing using a relative address (assuming the `package.json` contains `type:module`).
 
 #### Part 3: 'bare' version with no convenience/undocumented options
 The base module produced in Part 1 is still quite large, so a 'bare' version consisting of just the Proj4js code without any of the convenience options is created in `dist/esbare/`:
@@ -42,7 +42,7 @@ For the moment, this repo contains `bareindex.js` and hacked versions of 3 other
 * copy `defs.js`, `projections.js` and `parseCode.js` to `../proj4js/lib/` so they overwrite the existing ones
 * run `rollup -c rollup.bareconfig.js` to create `dist/esbare`.
 
-As with Part 2, this can be pushed to Github and the modules imported in the browser using `jsDelivr`. `test.html` shows an example of this, and `testbase.js` shows sample usage with relative addresses.
+As with Part 2, this can be pushed to Github and the modules imported in the browser using `jsDelivr`. `test.html` shows an example of this, and `testbare.js` shows sample usage with relative addresses, for example: `deno run https://cdn.jsdelivr.net/gh/probins/myproj@0.4.1/testbare.js`.
 
 #### Build sizes
 Current full build available on `cdnjs.com` is 76k. Base module from Part 2 (`dist/es/`) is 29k. Removing undocumented functions and treating `merc` as other projection types as described in Part 3 (`dist/esbare`) reduces this to 21k. Removing the parsing of Proj def and WKT strings reduces it further to 12k.
